@@ -4,11 +4,14 @@
     Selamat Datang
 @endsection
 
+{{-- Form Sigin --}}
 @section('content')
     <div class="row">
         <div class="col-md-6">
             <h3>Sign Up</h3>
-            <form action="#" method="POST">
+            <form action="{{ route('signup') }}" method="POST">
+                {{-- csrf_field mengganti input type=hidden baris 28 --}}
+                {{ csrf_field() }}
                 <div class="form-group">
                     <label for="email">Your E-mail</label>
                     <input class="form-control" type="email" name="email" id="email">
@@ -22,6 +25,7 @@
                     <input class="form-control" type="password" name="password" id="password">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
+                {{-- <input type="hidden" name="_token" value="{{Session::token()}}"> --}}
             </form>
         </div>
         <div class="col-md-6">
@@ -40,4 +44,5 @@
             </div>
     </div>
 @endsection
+{{-- Akhir Form Signin --}}
 
